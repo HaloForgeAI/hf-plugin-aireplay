@@ -1,0 +1,51 @@
+{
+  "id": "blog-setup",
+  "title": "用 AI 搭建个人博客",
+  "description": "记录使用 AI 从零搭建一个 Astro 静态博客的过程",
+  "created_at": "2026-04-14T10:00:00Z",
+  "updated_at": "2026-04-14T15:00:00Z",
+  "steps": [
+    {
+      "id": "s01",
+      "type": "milestone",
+      "title": "💡 决定开始",
+      "content": "想搭建一个个人博客来分享技术笔记，决定让 AI 帮忙。\n\n目标：用最快的速度上线一个简约博客，能写 Markdown、有标签分类、手机端可看。",
+      "timestamp": "2026-04-14"
+    },
+    {
+      "id": "s02",
+      "type": "prompt",
+      "title": "告诉 AI 需求",
+      "content": "我想搭建一个简约风格的个人博客，用来分享编程学习笔记。\n\n要求：\n- 支持 Markdown 写作\n- 有文章列表和标签分类\n- 自适应移动端\n- 尽量简单，不要太复杂\n\n请推荐技术方案，并给出项目搭建步骤。",
+      "timestamp": "2026-04-14"
+    },
+    {
+      "id": "s03",
+      "type": "ai-output",
+      "title": "AI 给出技术方案",
+      "content": "## 推荐方案\n\n使用 **Astro** 搭建静态博客，理由：\n\n| 特性 | 说明 |\n|------|------|\n| 零 JS 开销 | 默认不发送 JavaScript |\n| Markdown 原生支持 | 直接写 `.md` 文件即可 |\n| 部署简单 | 一键部署到 Vercel / Netlify |\n\n### 项目结构\n\n```\nmy-blog/\n├── src/\n│   ├── pages/\n│   ├── layouts/\n│   └── content/posts/\n├── public/\n└── astro.config.mjs\n```\n\n### 搭建步骤\n\n```bash\nnpm create astro@latest my-blog\ncd my-blog\nnpm run dev\n```\n\n大约 10 分钟就能跑起来。",
+      "timestamp": "2026-04-14"
+    },
+    {
+      "id": "s04",
+      "type": "document",
+      "title": "生成的搭建指南",
+      "content": "# 个人博客搭建指南\n\n## 快速上手\n\n```bash\nnpm create astro@latest my-blog -- --template blog\ncd my-blog\nnpm run dev\n```\n\n## 发布文章\n\n在 `src/content/posts/` 下新建 `.md` 文件：\n\n```markdown\n---\ntitle: 我的第一篇文章\ndate: 2026-04-14\ntags: [\"入门\", \"博客\"]\n---\n\n正文内容…\n```\n\n## 自定义主题色\n\n编辑 `src/styles/global.css`：\n\n```css\n:root {\n  --accent: #4f46e5;\n  --accent-light: #818cf8;\n}\n```\n\n## 部署到 Vercel\n\n1. 推送代码到 GitHub\n2. 登录 [vercel.com](https://vercel.com)\n3. Import 仓库 → 自动检测 Astro → Deploy\n\n部署完成后会拿到一个 `*.vercel.app` 域名。",
+      "timestamp": "2026-04-14"
+    },
+    {
+      "id": "s05",
+      "type": "note",
+      "title": "使用心得",
+      "content": "整个搭建过程不到半小时！\n\n几点体会：\n- AI 帮我跳过了「选技术栈」的纠结阶段\n- 生成的文档可以直接当备忘录用\n- Astro 确实比 Next.js 简单很多，适合纯内容站\n\n下次想试试加上 RSS 订阅和暗色模式。",
+      "timestamp": "2026-04-14"
+    },
+    {
+      "id": "s06",
+      "type": "milestone",
+      "title": "🎉 博客上线",
+      "content": "博客成功部署到 Vercel，第一篇文章已发布。\n\n从提出想法到上线，AI 全程辅助，耗时约 30 分钟。",
+      "timestamp": "2026-04-14"
+    }
+  ]
+}

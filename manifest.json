@@ -1,0 +1,70 @@
+{
+  "$schema": "https://haloforge.dev/schemas/plugin/v1.json",
+  "id": "dev.haloforge.aireplay",
+  "name": "AI Replay",
+  "version": "0.1.0",
+  "description": "Replay and narrate AI-assisted coding sessions as an interactive timeline with animations.",
+  "long_description": "A timeline player for narrating AI collaboration workflows. Import prompts, AI outputs, code diffs, documents, and milestones into a story, then present them with typewriter effects, streaming simulation, diff highlighting, and smooth transitions — ideal for demos and retrospectives.",
+  "author": "HaloForge Team",
+  "homepage": "https://github.com/HaloForgeAI/hf-plugin-aireplay",
+  "license": "MIT",
+  "keywords": ["ai", "replay", "timeline", "presentation", "demo"],
+  "icon": "assets/icon.png",
+  "compatibility": {
+    "min_app_version": "1.0.0",
+    "platforms": ["windows", "macos", "linux"]
+  },
+  "capability_levels": [0],
+  "integration": {
+    "level0": {
+      "module_id": "aireplay",
+      "module_label": "AI Replay",
+      "module_icon": "PlayCircle",
+      "sidebar_position": "main",
+      "sidebar_order": 40,
+      "panel_entry": "frontend/index.js"
+    }
+  },
+  "entry": {
+    "native": {
+      "macos_arm64": "native/aarch64-apple-darwin.dylib",
+      "macos_x64": "native/x86_64-apple-darwin.dylib",
+      "windows_x64": "native/x86_64-pc-windows-msvc.dll",
+      "windows_arm64": "native/aarch64-pc-windows-msvc.dll",
+      "linux_x64": "native/x86_64-unknown-linux-gnu.so",
+      "linux_arm64": "native/aarch64-unknown-linux-gnu.so"
+    },
+    "frontend": "frontend/index.js",
+    "frontend_styles": "frontend/styles.css"
+  },
+  "permissions": [
+    { "type": "ipc_register" },
+    { "type": "filesystem_read" },
+    { "type": "database_create_tables" }
+  ],
+  "settings_schema": {
+    "type": "object",
+    "properties": {
+      "default_playback_speed": {
+        "type": "number",
+        "title": "Default playback speed multiplier",
+        "default": 1.0,
+        "minimum": 0.5,
+        "maximum": 2.0
+      },
+      "typewriter_char_delay_ms": {
+        "type": "number",
+        "title": "Typewriter effect delay per character (ms)",
+        "default": 30,
+        "minimum": 10,
+        "maximum": 100
+      }
+    }
+  },
+  "commands": [
+    { "id": "aireplay_list_recents", "description": "List recently opened replay story files" },
+    { "id": "aireplay_load_story", "description": "Load a .replay.json story from disk" },
+    { "id": "aireplay_save_story", "description": "Save a story to a .replay.json file" },
+    { "id": "aireplay_remove_recent", "description": "Remove a story from the recents list" }
+  ]
+}
