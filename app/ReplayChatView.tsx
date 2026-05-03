@@ -16,7 +16,7 @@ import {
   Gauge,
 } from "lucide-react";
 import { convertFileSrc } from "@tauri-apps/api/core";
-import { MarkdownRenderer } from "../../../src/shared/components/MarkdownRenderer";
+import { MarkdownRenderer } from "./host/MarkdownRenderer";
 import { useReplayT } from "./i18n";
 import type { ReplayStep, StepType, PlaybackSpeed } from "./types";
 

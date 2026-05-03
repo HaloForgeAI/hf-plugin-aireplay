@@ -14,7 +14,7 @@ import {
 } from "lucide-react";
 import type { ReplayStep, StepType } from "./types";
 import { useReplayT } from "./i18n";
-import { MarkdownRenderer } from "../../../src/shared/components/MarkdownRenderer";
+import { MarkdownRenderer } from "./host/MarkdownRenderer";
 
 // ─── Type config ─────────────────────────────────────────────────────────────
 

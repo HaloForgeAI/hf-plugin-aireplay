@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { MarkdownRenderer } from "../../../../src/shared/components/MarkdownRenderer";
+import { MarkdownRenderer } from ".././host/MarkdownRenderer";
 import type { ReplayStep } from "../types";
 
 interface NoteStepProps {

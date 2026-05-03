@@ -14,8 +14,8 @@ import {
   Presentation,
   MessageSquare,
 } from "lucide-react";
-import { pickFile, pickDirectory, saveFile } from "../../../src/features/devkit/devkitDialogs";
-import { useAppStore } from "../../../src/shared/stores/appStore";
+import { pickFile, pickDirectory, saveFile } from "./host/devkitDialogs";
+import { useAppStore } from "./host/appStore";
 import { ReplayTimeline } from "./ReplayTimeline";
 import { ReplayStage } from "./ReplayStage";
 import { ReplayControls } from "./ReplayControls";

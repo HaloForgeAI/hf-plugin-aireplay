@@ -31,3 +31,19 @@ An interactive timeline player for narrating AI-assisted coding sessions inside 
   "updated_at": "2026-04-09T10:00:00Z"
 }
 ```
+
+## Packaging
+
+This repository builds independently from the main HaloForge app. The backend uses the published
+`haloforge-plugin-api` crate, and the frontend uses `@haloforge/plugin-sdk`.
+
+Local package check:
+
+```bash
+cargo run --manifest-path ../HaloForge/tools/hf-pack/Cargo.toml -- check .
+cargo run --manifest-path ../HaloForge/tools/hf-pack/Cargo.toml -- pack . --release --out dist/plugin-release
+```
+
+GitHub release packaging uses `.github/workflows/plugin-release.yml`. If the HaloForge tooling
+repository is private, set `HALOFORGE_TOOLS_TOKEN` with read access to `HaloForgeAI/HaloForge`.
+Set `HF_ADMIN_TOKEN` to submit generated catalog metadata to the production plugin catalog.
