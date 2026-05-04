@@ -24,7 +24,7 @@ impl HaloForgePlugin for AIReplayPlugin {
         PluginMetadata {
             id: "dev.haloforge.aireplay".into(),
             name: "AI Replay".into(),
-            version: "0.1.0".into(),
+            version: "0.1.3".into(),
             description: "Replay and narrate AI-assisted coding sessions.".into(),
             author: "HaloForge Team".into(),
             abi_version: PLUGIN_ABI_VERSION,
@@ -59,3 +59,5 @@ impl HaloForgePlugin for AIReplayPlugin {
         Ok(())
     }
 }
+
+hf_plugin_api::declare_plugin!(AIReplayPlugin, AIReplayPlugin::new);
