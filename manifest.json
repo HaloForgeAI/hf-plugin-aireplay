@@ -6,7 +6,7 @@
   "description": "Replay and narrate AI-assisted coding sessions as an interactive timeline with animations.",
   "long_description": "A timeline player for narrating AI collaboration workflows. Import prompts, AI outputs, code diffs, documents, and milestones into a story, then present them with typewriter effects, streaming simulation, diff highlighting, and smooth transitions — ideal for demos and retrospectives.",
   "author": "HaloForge Team",
-  "homepage": "https://github.com/HaloForgeAI/hf-plugin-aireplay",
+  "homepage": "https://haloforge.link/catalog/plugins/aireplay",
   "license": "MIT",
   "keywords": ["ai", "replay", "timeline", "presentation", "demo"],
   "icon": "assets/icon.png",
