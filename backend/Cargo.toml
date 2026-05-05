@@ -1,6 +1,6 @@
 [package]
 name = "hf-plugin-aireplay"
-version = "0.1.3"
+version = "0.1.4"
 edition = "2021"
 description = "HaloForge built-in AI Replay plugin (backend)"
 
