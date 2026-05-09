@@ -2,7 +2,7 @@
   "$schema": "https://haloforge.dev/schemas/plugin/v1.json",
   "id": "dev.haloforge.aireplay",
   "name": "AI Replay",
-  "version": "0.1.4",
+  "version": "0.2.0",
   "description": "Replay and narrate AI-assisted coding sessions as an interactive timeline with animations.",
   "long_description": "A timeline player for narrating AI collaboration workflows. Import prompts, AI outputs, code diffs, documents, and milestones into a story, then present them with typewriter effects, streaming simulation, diff highlighting, and smooth transitions — ideal for demos and retrospectives.",
   "author": "HaloForge Team",
@@ -12,8 +12,10 @@
   "icon": "assets/icon.png",
   "compatibility": {
     "min_app_version": "0.6.0",
+    "min_host_api_version": "0.1.0",
     "platforms": ["windows", "macos", "linux"]
   },
+  "host_capabilities": ["app_state", "file_dialogs"],
   "capability_levels": [0],
   "integration": {
     "level0": {
@@ -39,7 +41,10 @@
   "permissions": [
     { "type": "ipc_register" },
     { "type": "filesystem_read" },
-    { "type": "database_create_tables" }
+    { "type": "filesystem_write" },
+    { "type": "database_create_tables" },
+    { "type": "host_app_state_read" },
+    { "type": "host_file_dialogs" }
   ],
   "settings_schema": {
     "type": "object",

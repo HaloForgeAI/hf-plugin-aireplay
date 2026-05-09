@@ -1,3 +1,6 @@
+import { useMemo } from "react";
+import { useHostAppState } from "@haloforge/plugin-sdk";
+
 type AppState = {
   activeModule: string;
   setActiveModule: (module: string) => void;
@@ -6,14 +9,18 @@ type AppState = {
   clearPendingMarkdownOpenPath: () => void;
 };
 
-const state: AppState = {
-  activeModule: "devkit",
-  setActiveModule: () => {},
-  pendingMarkdownOpenPath: null,
-  setPendingMarkdownOpenPath: (path) => { state.pendingMarkdownOpenPath = path; },
-  clearPendingMarkdownOpenPath: () => { state.pendingMarkdownOpenPath = null; },
-};
+const noop = () => {};
 
 export function useAppStore<T>(selector: (state: AppState) => T): T {
+  const hostAppState = useHostAppState();
+
+  const state = useMemo<AppState>(() => ({
+    activeModule: hostAppState.activeModule,
+    setActiveModule: noop,
+    pendingMarkdownOpenPath: null,
+    setPendingMarkdownOpenPath: noop,
+    clearPendingMarkdownOpenPath: noop,
+  }), [hostAppState.activeModule]);
+
   return selector(state);
 }

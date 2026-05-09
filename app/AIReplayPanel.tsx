@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from "react";
-import { invoke } from "@tauri-apps/api/core";
+import { invokePlugin } from "@haloforge/plugin-sdk";
 import clsx from "clsx";
 import {
   PanelLeftClose,
@@ -34,12 +34,7 @@ import type {
 // ─── Plugin IPC helper (matches gitInvoke pattern) ───────────────────────────
 
 function replayInvoke<T>(cmd: string, args: Record<string, unknown> = {}): Promise<T> {
-  return invoke<T>("plugin_invoke", {
-    args: {
-      wire_name: `plugin_dev_haloforge_aireplay_${cmd}`,
-      args,
-    },
-  });
+  return invokePlugin<T>(cmd, args);
 }
 
 function isEditableTarget(target: EventTarget | null): boolean {

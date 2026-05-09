@@ -1,24 +1,33 @@
-import { invoke } from "@tauri-apps/api/core";
+import { useMemo } from "react";
+import { useHostAI } from "@haloforge/plugin-sdk";
 
 type AIChatState = Record<string, unknown>;
 
-const state: AIChatState = {
-  sessions: [],
-  activeSessionId: null,
-  messages: [],
-  modelConfigs: [],
-  selectedModelId: null,
-  isStreaming: false,
-  streamingContent: "",
-  streamingReasoning: "",
-  fetchSessions: async () => {},
-  fetchModelConfigs: async () => {},
-  createSession: async () => null,
-  setActiveSession: async () => {},
-  sendMessage: async (content: string) => invoke("aichat_send_message", { request: { content } }),
-  stopGeneration: async () => invoke("aichat_stop_generation"),
-};
-
 export function useAIChatStore<T>(selector: (state: AIChatState) => T): T {
+  const hostAI = useHostAI<unknown, unknown>();
+  const state = useMemo<AIChatState>(() => ({
+    sessions: [],
+    activeSessionId: null,
+    messages: [],
+    modelConfigs: hostAI.models,
+    selectedModelId: hostAI.selectedModelId,
+    isStreaming: false,
+    streamingContent: "",
+    streamingReasoning: "",
+    fetchSessions: async () => {},
+    fetchModelConfigs: hostAI.refresh,
+    createSession: hostAI.createSession,
+    setActiveSession: async () => {},
+    sendMessage: hostAI.sendMessage,
+    stopGeneration: hostAI.stopGeneration,
+  }), [
+    hostAI.createSession,
+    hostAI.models,
+    hostAI.refresh,
+    hostAI.selectedModelId,
+    hostAI.sendMessage,
+    hostAI.stopGeneration,
+  ]);
+
   return selector(state);
 }
