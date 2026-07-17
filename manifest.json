@@ -2,7 +2,7 @@
   "$schema": "https://haloforge.dev/schemas/plugin/v1.json",
   "id": "dev.haloforge.aireplay",
   "name": "AI Replay",
-  "version": "0.2.6",
+  "version": "0.2.7",
   "description": "Replay and narrate AI-assisted coding sessions as an interactive timeline with animations.",
   "long_description": "A timeline player for narrating AI collaboration workflows. Import prompts, AI outputs, code diffs, documents, and milestones into a story, then present them with typewriter effects, streaming simulation, diff highlighting, and smooth transitions — ideal for demos and retrospectives.",
   "author": "HaloForge Team",
